@@ -1,0 +1,595 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>作业描述</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span> </span><em><strong><span>*</span><span>大数据分析实训大作业报告</span><span>*</span></strong></em></p><h1 id='1-功能描述'><strong><span>1.</span></strong><span> </span><em><strong><span>*</span><span>功能描述</span><span>*</span></strong></em></h1><p><span>本作业从MongoDB取出中国和世界疫情的相关数据进行处理和分析，然后将处理好的数据以Json的形式分别加载到相应的网站，基于ajax异步加载实现轮询，设定每一个小时发起一次请求，从相应的网站获取数据。基于flask实现了在大屏上展示中国&amp;世界疫情实时追踪，使用flask_apscheduler实现每天的十点钟爬取最新的疫情数据（每天九点多数据源网站更新）。共实现了全国现有确诊、累计确诊总数，现有确诊排名前八的国家，近2个月全国疫情走势图，基于前两月新增确诊数据预测未来一周新增确诊，当日新增确诊、累计确诊、本土无症状的各区间累计情况，现有确诊排名前八的省份，直辖市现有确诊情况，中国疫情地图八个模块，以及在左上角显示当前展示的数据是何时更新的，右上角展示当前时间。</span></p><p><span>static存储的大部分为静态元素，例如一些js文件，图片，字体，文字样式等等。</span></p><p><span>static\css\comon0.css文件是css文件，是对大屏展示网站进行美化页面，修饰标签 </span></p><p><span>static\font\DS-DIGIT.TTF 是css的一种字体，数字液晶字体</span></p><p><span>static\images 储存的是大屏的背景照片</span></p><p><span>static\js\china.js 中国地图的函数库,使数据中的省份和地图能够对应起来</span></p><p><span>static\js\echarts.min.js ECharts纯Javascript的图表库,支持多类图表，同时提供标题等7</span><span>	</span><span>个可交互组件，支持多图表、组件的联动和混搭展现。</span></p><p><span>static\js\index.html 网页的背景，实现一个动态粒子的效果</span></p><p><span>static\js\jquery.js Jquery是一个优秀的Javascrīpt框架,Jquery能更方便地处理HTML documents、events、实现动画效果，并且方便地为网站提供AJAX交互。</span></p><p><span>static\js\loading.js 是一个加载动画，这个加载动画使得网页加载具有淡入的效果，并且确保了网页在拉伸的时候能自适应调整布局。</span></p><p><span>static\js\showtime.js 实现时间的显示，时间每秒刷新。</span></p><p><span>templates\index.html 网页源码，控制网页整体布局及数据的显示，echarts的一些参数设置，设置要实现的功能模块option，使用ajax异步加载数据，控制网站轮询更新数据。</span></p><p><span>app.py 定义了每个模块ajax跳转的网站，网站加载每个模块需要的数据，并且采用了flask ApScheduler 定时器功能，定时在每天的十点运行数据爬取模块，更新数据，启动flask网页服务器。</span></p><p><span>data.py 记载MongoDB中存储的疫情数据，对数据按照实现模块的需求进行处理。</span></p><p><span>dataCrawler.py 爬取最新的国内外疫情数据，存储到MongoDB中，并更新更新时间。</span></p><p><span>model.py 利用前两个月的新增确诊数据，训练出一个Holt-Winters季节性预测模型，并且利用这个模型对未来七天的新增确诊人数进行预测。</span></p><h1 id='2-数据存储'><strong><span>2.</span></strong><span> </span><em><strong><span>*</span><span>数据存</span><span>*</span></strong><strong></strong><span>*</span><span>储</span><span>*</span><span>**</span></em></h1><p><span>本作业使用的是MongoDB数据库存储数据，MongoDB是一个基于分布式文件存储 的数据库。</span><a href='http://c.biancheng.net/mongodb/'><span>MongoDB</span></a><span> 文档数据库的存储结构分为四个层次，从小到大依次是：键值对、文档（document）、集合（collection）、数据库（database）。</span></p><p><span>本作业使用了一个数据库coronavirus三个集合chinaTotal、chinahistory、chinaprovince、worldcountry来存储数据。</span></p><p><span>chinaTotal中只存了一个文档，文档中name是存储的“中国”，nowConfirm存储的是中国现有确诊人数，confirm存储的是中国累计确诊人数，upgradetime存储的是当前数据库中存储的数据的更新时间。</span></p><p><span>chinahistory中存储的是中国两个月时间内的当日新增确诊人数和当日现有确诊人数，date存储的是时间日期，confirm存储的是当日现有确诊人数、confirmAdd存储的是当日新增确诊人数。</span></p><p><span>chinaprovince中存储的是中国各省份现有确诊人数、累计确诊人数、现有无症状人数、累计死亡人数、本地新增确诊人数。name存储的是省份名称，nowConfirm存储的是该省份现有确诊人数，confirm存储的是该省份累计确诊人数，wzz存储的是该省份无症状感染者人数、dead存储的是该省份累计死亡人数、localAdd存储的是该省份本地新增确诊人数。</span></p><p><span>worldcountry中存储的是世界各个国家的疫情数据，name存储的是国家名称，nowConfirm存储的是该国家现有确诊人数，confirm存储的是该国家累计确诊人数，dead存储的是该国家累计死亡人数。</span></p><p><span> </span></p><h1 id='3-大屏展示代码'><strong><span>3.</span></strong><span> </span><em><strong><span>*</span><span>大屏展示代码</span><span>*</span></strong></em></h1><h2 id='31-python代码'><strong><span>3.1</span></strong><span> </span><em><strong><span>*</span><span>python代码</span><span>*</span></strong></em></h2><p><em><strong><span>*</span><span>dataCrawler.py</span><span>*</span></strong></em><span>在这个文件中写了一个类crawlData（数据爬虫），这个类一共有五个属性</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps22.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>worldUrl是要爬取的世界疫情数据的网址，historyUrl是爬取中国两个月内历史数据的网址，provinceUrl是爬取中国整体及各省份疫情数据的网址，client是连接我的MongoDB数据库，db是储存所需要用的数据的数据库coronavirus。</span></p><p><span>类中还写了get_page_world_data、save_MongoDB_world、get_page_history_data、save_MongoDB_history、get_page_province_data、save_MongoDB_province，分别用于从相应的网站中爬取中国近两月历史疫情数据、全国整体及各省份疫情数据、世界各国疫情数据，其中save_MongoDB_province方法还将更新疫情数据的时间写入了chinaTotal集合中。</span></p><p><span>run（）方法是用来运行上述爬取疫情数据的方法，所有方法运行完成后，会输出“数据更新完毕”</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps23.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>data.py</span><span>*</span></strong></em><span>在这个文件中写了一个类getData，这个类一共有六个属性</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps24.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>client是连接我的MongoDB数据库，db是储存所需要用的数据的数据库coronavirus，chinahistory是coronavirus数据库中国近两个月历史疫情数据集合，worldcountry是coronavirus数据库中世界各国疫情数据集合，chinaprovince是coronavirus数据库中国各个省份疫情数据集合，chinaTotal是coronavirus数据库中国整体数据集合。</span></p><p><span>Jsonmongodb（）方法是获取我的数据库中chinaprovince集合中的数据，即各个省份的疫情数据，将集合中的各个文档中的数据加入到output列表中，将列表返回。列表中的元素是一个字典，字典中包括各个省份的名字、现存感染人数、累计感染人数、无症状感染人数、累计死亡人数，这个方法返回的数据是大屏展示的中国疫情地图所需要的数据。</span></p><p><span>echart1（）方法返回现有确诊排名前八的国家模块所需要的数据，该方法首先从数据库的worldcountry集合中取出所有数据</span><span>	</span><span>，然后将从chinaTotal中中国的整体数据加入，转换为列表类型，按照现有确诊人数进行降序排序后取出排名前八的国家，将该数据返回。</span></p><p><span>echart2（）方法返回基于前两月新增确诊数据预测未来一周新增确诊模块需要的数据，该方法从数据库中chinahistory集合中取出数据的日期和当日新增确诊两列，然后初始化一个Model类，使用model的预测方法，将前两个月的新增确诊数据传入，然后得到预测的未来七天的新增确诊人数，将近一个月的新增确诊人数和预测的未来七天的新增确诊人数结合到一起后，以字典的形式返回，Date的值是这整个周期的日期，add1是预测的未来七天的新增确诊人数，add2是中国近两个月的新增确诊人数。</span></p><p><span>echart3（）方法返回当日新增确诊、累计确诊、本土无症状的各区间累计情况模块的数据，该方法首先从数据库的chinaprovince集合中获取数据，然后计算当日新增确诊、累计确诊、本土无症状处于0&quot;, &quot;1-99&quot;, &quot;100-999&quot;, &quot;1000-9999&quot;,&quot;10000+&quot;区间的省份数量。将得到的数据以列表的形式返回，列表中的元素为字典。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps25.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>echart4（）方法返回近2个月全国疫情走势图模块需要的数据，该方法从数据库中chinahistory集合中取出数据的日期、本地新增确诊、本地现有确诊三列数据，然后将date作为xAxis，返回字典类型的数据。</span></p><p><span>echart5（）方法返回现有确诊排名前8的省份模块的数据，该方法首先从数据库的chinaprovince集合中取出所有数据，转换为列表类型，按照现有确诊人数进行降序排序后取出排名前八的省份，将该数据返回。</span></p><p><span>echart6（）方法返回直辖市现有确诊情况模块的数据，从数据库的chinaprovince集合中找到“北京”，“上海”，“天津”，“重庆”四个直辖市的现有确诊数据，方法中的color 是圆环的颜色，radius是每个圆环的半径，将四个直辖市按照现有确诊人数的多少降序排序，人数越多的市圆环的半径越大。将直辖市的确诊人数数据和颜色、半径对应后，以字典类型返回。</span></p><p><span>title（）方法 以字典类型返回全国现有确诊、累计确诊总数的值，数据库更新数据的时间，并返回各个模块展示的标题。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps26.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>model.py</span><span>*</span></strong></em><span> 该文件主要实现了用近两个月中国的历史新增确诊人数构建并训练时序模型，对未来七天的新增确诊人数展开预测。</span></p><p><span>该文件中构建了一个类predictModel，其中</span></p><p><span>model（）方法需要一个data参数，这个参数就是data.py文件中echart2（）方法传进来的从数据库中chinahistory集合中取出数据的日期和当日新增确诊两列数据。然后使用pandas将日期转为datetime类型，然后将date作为value的index，从 statsmodels.tsa.api 导入 ExponentialSmoothing，这种模型叫做Holt-Winters季节性预测模型，它是一种三次指数平滑预测，其背后的理念就是除了水平和趋势外，还将指数平滑应用到季节分量上。我经过很多次试验后选择了 seasonal_period = 25作为每周重复的数据。也可以调整其它其它参数，我将trend，seasonal都调成了&#39;mul&#39;模式。然后使用timedelta函数，计算出未来七天起始的日期和结束的日期，将起始日期和结束日期传入预测函数，得到预测结果，将结果返回。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps27.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>predict（）方法，接收传进来的数据，然后运行model方法，训练模型并预测。</span></p><p><em><strong><span>*</span><span>app.py</span><span>*</span></strong></em><span>中导入了crawlData类，并新建了此类的实例，运行类的run（）方法，在上边写了，crawlData的run（）方法会运行爬取疫情数据的一些方法，写在app.py文件的最开头是为了每次启动flask服务之前，先更新数据，以保证每次大屏展示的数据都是最新的。</span></p><p><span>Config这个类继承了object类，这个类使用来设定定时器任务，即设定任务要进行的操作即运行run（）方法，这个run（）方法就是运行上边crawlData的实例的run（）方法，触发方式是corn，即在特定时间运行，我设置的是每天十点，并且设定可以访问定时器页面，在启动flask任务后，访问</span><a href='http://127.0.0.1:5000/scheduler/jobs' target='_blank' class='url'>http://127.0.0.1:5000/scheduler/jobs</a><span>，就可以看到定时任务。初始化flask app，并且将设定好的config导入，然后初始化scheduler （任务调度器），并将调度器和app连接起来，启动调度器。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps28.jpg" referrerpolicy="no-referrer" alt="img"><span> </span><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps29.jpg" referrerpolicy="no-referrer" alt="img"></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps30.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>导入getData类，并且初始化一个实例getDataSource，这个类是data.py文件中定义处理并返回所需要数据的类。</span></p><p><span>jsonmongodb（）</span><span>	</span><span>，使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/province' target='_blank' class='url'>http://127.0.0.1:5000/province</a><span>，调用getDataSource.jsonmongodb()函数，使得该网站返回的是json形式的中国疫情地图所需要的数据。</span></p><p><span>echart1（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart1' target='_blank' class='url'>http://127.0.0.1:5000/echart1</a><span>，</span></p><p><span>调用getDataSource.echart1()函数,获得确诊排名前八的国家模块所需要的数据，并且将数据化为json形式传到网页中。</span></p><p><span>echart2（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart2' target='_blank' class='url'>http://127.0.0.1:5000/echart2</a><span>，</span></p><p><span>调用getDataSource.echart2()函数,获得基于前两月新增确诊数据预测未来一周新增确诊模块需要的数据，并且将数据化为json形式传到网页中。</span></p><p><span>echart3（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart3' target='_blank' class='url'>http://127.0.0.1:5000/echart3</a><span>，</span></p><p><span>调用getDataSource.echart3()函数,获得当日新增确诊、累计确诊、本土无症状的各区间累计情况模块的数据，并且将数据化为json形式传到网页中。</span></p><p><span>echart4（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart4' target='_blank' class='url'>http://127.0.0.1:5000/echart4</a><span>，</span></p><p><span>调用getDataSource.echart4()函数,获得近2个月全国疫情走势图模块需要的数据，并且将数据化为json形式传到网页中。</span></p><p><span>echart5（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart5' target='_blank' class='url'>http://127.0.0.1:5000/echart5</a><span>，</span></p><p><span>调用getDataSource.echart5()函数,获得现有确诊排名前8的省份模块的数据，并且将数据化为json形式传到网页中。</span></p><p><span>echart6（）,使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/echart6' target='_blank' class='url'>http://127.0.0.1:5000/echart6</a><span>，</span></p><p><span>调用getDataSource.echart6()函数,获得直辖市现有确诊情况模块的数据，并且将数据化为json形式传到网页中。</span></p><p><span>Title（），使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/Title' target='_blank' class='url'>http://127.0.0.1:5000/Title</a><span>，</span></p><p><span>调用getDataSource.Title（）函数，获得全国现有确诊、累计确诊总数的值，数据库更新数据的时间，各个模块展示的标题。并且将数据json化，传入网页中。</span></p><p><span>index（），使用 route() 装饰器把函数绑定到</span><a href='http://127.0.0.1:5000/' target='_blank' class='url'>http://127.0.0.1:5000/</a><span>，</span></p><p><span>设置大屏的标题为&#39;中国&amp;国际疫情实时追踪&#39;，并且使用render_template（）方法，将网页跳转到index.html。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps31.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>运行app.run（）方法，启动flask服务。</span></p><h2 id='32-外部js代码'><strong><span>3.2</span></strong><span> </span><em><strong><span>*</span><span>外部JS代码</span><span>*</span></strong></em></h2><p><span>static\js\china.js 中国疫情地图是基于echarts.js和china.js绘制图像。中国地图的函数库,使数据中的省份和地图能够对应起来</span></p><p><span>static\js\echarts.min.js 是ECharts一个Javascript的图表库,支持多类图表，同时提供标题等7</span><span>	</span><span>个可交互组件，支持多图表、组件的联动和混搭展现，使得我们在html文件中写的echart图表能够展示出来。</span></p><p><span>static\js\jquery.js Jquery是一个优秀的Javascrīpt框架,Jquery能更方便地处理HTML documents、events、实现动画效果，并且方便地为网站提供ajax交互。</span></p><p><span>static\js\loading.js 是一个加载动画，这个加载动画使得网页加载具有淡入的效果，并且确保了网页在拉伸的时候能自适应调整布局。</span></p><p><span>static\js\showtime.js 实现时间的显示，时间每秒刷新。</span></p><h2 id='33-html文件'><strong><span>3.3</span></strong><span> </span><em><strong><span>*</span><span>HTML文件</span><span>*</span></strong></em></h2><p><span>本作业用到了两个HTML文件，分别是static\js\index.html和templates\index.html。</span></p><p><span>static\js\index.html 加载了网页的背景，实现一个动态粒子的效果</span></p><p><span>templates\index.html 是app.py中index（）函数跳转的网页，也是整个大屏展示的HTML文件。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps32.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>这段HTML代码导入了外部js文件，和css文件，并且定义了网站的名字为段博涵的大屏幕。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps33.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>导入static\js\index.html文件，实现动态的粒子效果图。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps34.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>实现了等待加载时等待小动画效果</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps35.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>导入外部的showtime.js文件，实现了在大屏右上角展示时间和天气的功能。并且定义了更新时间模块，设置“id=UpGrade”。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps36.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>将大屏划分为3栏，这是最左边的一栏，这一栏一共放了现有确诊排名前八的国家，基于前两月新增确诊数据预测未来一周新增确诊，当日新增确诊、累计确诊、本土无症状的各区间累计情况三个模块。定义了这三个模块的id，以便在后边进行引用。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps37.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>第二栏，放置全国现有确诊、累计确诊总数和中国疫情地图模块</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps38.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><span>第三栏，放置了近2个月全国疫情走势图、现有确诊排名前八的省份、直辖市现有确诊情况三个模块。</span></p><p><em><strong><span>*</span><span>function refreshTime()</span><span>*</span></strong></em><span>，这个是更新时间模块的方法，使用ajax技术，从&quot;</span><a href='http://127.0.0.1:5000/Title' target='_blank' class='url'>http://127.0.0.1:5000/Title</a><span>&quot; + &quot;?n=&quot; + Math.random()获取更新数据的时间，在网站后面加上一个随机数字是为了避免浏览器直接读取缓存，让浏览器每次都以为是一个新的请求，使得数据在更换之后重新加载可以加载新的数据。在这个函数中，我直接使用css selector找到更新时间模块的id，将时间传入模块的text。最后使用轮询技术，每隔一个小时，重新加载一次这个function。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps39.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>function refreshCounter()</span><span>*</span></strong></em><span> </span><em><strong><span>*</span><span>，</span><span>*</span></strong></em><span>这个是给全国现有确诊、累计确诊总数模块传输数据的方法，同样使用了ajax技术，从 &quot;</span><a href='http://127.0.0.1:5000/Title' target='_blank' class='url'>http://127.0.0.1:5000/Title</a><span>&quot; + &quot;?n=&quot; + Math.random()中加载数据，</span></p><p><span>使用css selector找到模块的id，将数据传入模块。使用轮询技术，每隔一个小时，重新加载一次这个function。</span></p><p><em><strong><span>*</span><span>function refreshTitle()</span><span>*</span></strong><strong></strong><span>*</span><span>,</span><span>*</span><span>**</span></em><span>这个函数使用了ajax技术，从&quot;</span><a href='http://127.0.0.1:5000/Title' target='_blank' class='url'>http://127.0.0.1:5000/Title</a><span>&quot; + &quot;?n=&quot; + Math.random()获取各个模块的标题，使用css selector找到各个模块的标题的id，将标题传入，使用轮询技术，每隔一个小时，重新加载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh1()</span><span>*</span></strong><strong></strong><span>*</span><span>，</span><span>*</span><span>**</span></em><span>这个函数实现现有确诊排名前八的国家模块，使用ajax技术，&quot;</span><a href='http://127.0.0.1:5000/echart1' target='_blank' class='url'>http://127.0.0.1:5000/echart1</a><span>&quot; + &quot;?n=&quot; + Math.random()在控制台加载数据，然后使用echart，通过查找ID，初始化模块，将背景设为蓝色，用data中的“name”即国家名称作为图表的x轴，“value”即现有确诊人数的值作为y轴，grid是位置参数，画出柱状图。使用tooltip，将鼠标放置在柱子上，会显示国家名称和确诊人数。使用轮询技术，每隔一个小时，重新加载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh</span><span>*</span></strong><strong></strong><span>*</span><span>2</span><span>*</span><strong><span>**</span></strong><span>*</span><span>()</span><span>*</span><strong><span>**</span></strong><span>*</span><span>，</span><span>*</span><span>**</span></em><span>这个函数实现基于前两月新增确诊数据预测未来一周新增确诊模块，函数通过ajax技术，从 &quot;</span><a href='http://127.0.0.1:5000/echart2' target='_blank' class='url'>http://127.0.0.1:5000/echart2</a><span>&quot; + &quot;?n=&quot; + Math.random()获得数据，然后使用echart，通过查找ID，初始化模块，option中的grid是图表位置的参数，其中蓝色的实线部分是历史数据，通过data的“add2”获取，绿色的虚线部分是预测数据，每个点代表未来通过data的“add1”获取。使用轮询技术，每隔一个小时，重新加载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh</span><span>*</span></strong><strong></strong><span>*</span><span>3_1</span><span>*</span><strong><span>**</span></strong><span>*</span><span>()</span><span>*</span><strong><span>**</span></strong><span>*</span><span>,</span><span>*</span><strong><span>**</span></strong><span>*</span><span>function refresh</span><span>*</span><strong><span>**</span></strong><span>*</span><span>3_2</span><span>*</span><strong><span>**</span></strong><span>*</span><span>()</span><span>*</span><strong><span>**</span></strong><span>*</span><span>，</span><span>*</span><strong><span>**</span></strong><span>*</span><span>function refresh</span><span>*</span><strong><span>**</span></strong><span>*</span><span>3_3</span><span>*</span><strong><span>**</span></strong><span>*</span><span>()</span><span>*</span><strong><span>**</span></strong><span>*</span><span>，</span><span>*</span><span>**</span></em><span>这三个个函数实现当日新增确诊、累计确诊、本土无症状的各区间累计情况模块。他们都使用ajax从网址&quot;</span><a href='http://127.0.0.1:5000/echart3' target='_blank' class='url'>http://127.0.0.1:5000/echart3</a><span>&quot; + &quot;?n=&quot; + Math.random()获取数据，然后使用echart，通过查找ID，初始化模块，数据分别为data[‘data1’],data[‘data2’],data[‘data3’]，各个区间由不同的颜色区分，鼠标放上去之后浮标显示为各个区间的数量和比例，图表中占据圆环的大小代表数量的多少。三个函数都通过轮询技术，每隔一小时重新记载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh4()</span><span>*</span></strong><strong></strong><span>*</span><span>，</span><span>*</span><span>**</span></em><span>这个函数实现了近2个月全国疫情走势图模块， 从&quot;</span><a href='http://127.0.0.1:5000/echart4' target='_blank' class='url'>http://127.0.0.1:5000/echart4</a><span>&quot; + &quot;?n=&quot; + Math.random(),然后使用echart，通过查找ID，初始化模块，绿色的线代表本地现有确诊，蓝色的线代表本地新增确诊，分别传入data[‘data0’],data[‘data1’]。将鼠标放上去，就会显示日期和当日的本地新增确诊和现有确诊人数。通过轮询技术，每隔一小时重新记载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh</span><span>*</span></strong><strong></strong><span>*</span><span>5</span><span>*</span><strong><span>**</span></strong><span>*</span><span>()</span><span>*</span><strong><span>**</span></strong><span>*</span><span>，</span><span>*</span><span>**</span></em><span>这个函数实现了现有确诊人数排名前八的省份模块，通过获取&quot;</span><a href='http://127.0.0.1:5000/echart5' target='_blank' class='url'>http://127.0.0.1:5000/echart5</a><span>&quot; + &quot;?n=&quot; + Math.random()的数据，然后使用echart，通过查找ID，初始化模块，将省份名称作为x轴，现有确诊人数作为y轴，展示为柱状图。通过轮询技术，每隔一小时重新记载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh6()，</span><span>*</span></strong></em><span>这个函数实现了直辖市现有确诊情况模块，通过获取&quot;</span><a href='http://127.0.0.1:5000/echart6' target='_blank' class='url'>http://127.0.0.1:5000/echart6</a><span>&quot; + &quot;?n=&quot; + Math.random()的数据，然后使用echart，通过查找ID，初始化模块，将排序好的数据传入环形图，有颜色的部分也大表示确诊人数越多，最外层圆环表示的直辖市是确诊人数最多的直辖市，越往里越少。通过轮询技术，每隔一小时重新记载一次这个function。</span></p><p><em><strong><span>*</span><span>function refresh_map()</span><span>*</span></strong></em><span> ，这个函数实现了中国疫情地图的模块，模块的数据加载自&quot;</span><a href='http://127.0.0.1:5000/province' target='_blank' class='url'>http://127.0.0.1:5000/province</a><span>&quot; + &quot;?n=&quot; + Math.random(),然后使用echart，通过查找ID，初始化模块。地图按照确诊人数的多少区分，确诊颜色越红代表该省份确诊人数越多，若没有确诊，则地图显示为蓝色，将鼠标放置在省份上，会显示该省份的名称、现有确诊人数、累计确诊人数、累计死亡人数、无症状感染者人数。地图的右下角，显示各个颜色代表的人数区间，这是通过option的pieces模块，将人数分级，并且对应各自的颜色实现的。通过轮询技术，每隔一小时重新记载一次这个function。</span></p><h1 id='4-系统实现及部署'><strong><span>4.</span></strong><span> </span><em><strong><span>*</span><span>系统实现及部署</span><span>*</span></strong></em></h1><h2 id='41-系统实现'><strong><span>4.1</span></strong><span> </span><em><strong><span>*</span><span>系统实现</span><span>*</span></strong></em></h2><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps40.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>数据库更新数据时间</span><span>*</span></strong></em></p><p><span>通过每次更新数据库数据时更新时间戳，然后在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取时间戳，然后通过id定位到该模块，将时间传入该模块的text属性。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps41.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>当前时间</span><span>*</span></strong></em></p><p><span>通过导入外部的showtime.js，然后在html文件中创建该模块，在css文件中设置模块的位置及属性，实时更新时间。</span></p><p><span> </span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps42.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>全国现有确诊、累计确诊总数</span><span>*</span></strong></em></p><p><span>从render_template方法传入title，在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取全国现有确诊人数和累计确诊人数，然后通过css selector查找id定位到模块，将数字和标题传入text属性。</span></p><p><span> </span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps43.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>现有确诊排名前八的国家</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，将数据插入，横坐标代表省份，纵坐标代表人数。轮询更新。</span></p><p><span> </span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps44.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>基于前两月新增确诊数据预测未来一周新增确诊</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，爬取的前两月新增确诊数据通过在时序模型中预训练之后，预测未来七天的数据，通过ajax技术传入模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，将数据插入，横坐标代表日期，纵坐标代表人数。轮询更新。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps45.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>当日新增确诊、累计确诊、本土无症状的各区间累计情况</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，将数据按照类别和区间分好，通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，将区间和颜色对应起来，将数据插入。轮询更新。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps46.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>近2个月全国疫情走势图</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，蓝色的线是本地新增确诊人数、绿色的线是本地西安确诊人数，横坐标代表日期，纵坐标是人数，将数据插入。轮询更新。</span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps47.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>现有确诊排名前八的省份</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，横坐标代表省份，纵坐标是人数，将数据插入。轮询更新。</span></p><p><span> </span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps48.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>直辖市现有确诊情况</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，越往外的直辖市现有确诊人数越多，将数据插入。轮询更新。</span></p><p><span> </span></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps49.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>中国疫情地图</span><span>*</span></strong></em></p><p><span>在html文件中创建该模块，在css文件中设置模块的位置及属性，导入地图需要的外部js文件china.js，将地图和数据对应起来。通过ajax技术，获取模块需要的数据，然后通过echart技术设置图表的属性、交互、显示效果，将数据插入。轮询更新。</span></p><p><span> </span></p><h2 id='42-系统部署'><strong><span>4.2</span></strong><span> </span><em><strong><span>*</span><span>系统部署</span><span>*</span></strong></em></h2><p><span>本作业需要安装flask库、 flask_apscheduler库、warnings库、json库、pandas库、requests库、pymongo库、datetime库、statsmodels.tsa.api库</span></p><p><span>运行app.py文件，文件会运行app.run()方法，flask服务会将网站部署在默认的网站端口上。</span></p><p><span>访问网址：</span><a href='http://127.0.0.1:5000/' target='_blank' class='url'>http://127.0.0.1:5000/</a></p><p><img src="file:///C:\Users\28238\AppData\Local\Temp\ksohtml15340\wps50.jpg" referrerpolicy="no-referrer" alt="img"><span> </span></p><p><em><strong><span>*</span><span>整体效果</span><span>*</span></strong></em></p><h1 id='5-实训问题及总结'><strong><span>5.</span></strong><span> </span><em><strong><span>*</span><span>实训问题及总结</span><span>*</span></strong></em></h1><p><em><strong><span>*</span><span>问题</span><span>*</span></strong></em></p><ol start='' ><li><span>MongoDB数据库无法访问，连接总是超时</span></li></ol><p><span>起先以为是换了网络IP没有访问权限，但是一直设置为0.0.0.0，后来查找了很多帖子，再将网络的DNS设为8.8.8.8之后解决问题</span></p><ol start='2' ><li><span>数据库中的数据更新了，不重启flask服务则不会在浏览器中更新数据</span></li></ol><p><span>通过翻看ajax的文档，发现了通过定时器实现轮询可以实现在数据库中更新数据自动更新到网页上，设置每一个小时请求一次</span></p><ol start='3' ><li><span>想要实现爬虫自动爬取数据，但是之前的爬虫写在很多文件中，每次爬取都需要很繁琐的步骤</span></li></ol><p><span>我将所有的爬虫集合成一个爬虫类，然后通过查flask的文档找到了flask apschedule，可以实现定时运行某个任务，设置每天十点定时爬取数据。</span></p><ol start='4' ><li><span>时序预测模型预测的数据一直为负数</span></li></ol><p><span>爬取到的数据中，缺少一天的数据，导致数据产生错位。我将数据单独查取后补齐，然后更换时序预测模型得到了比较好的结果。</span></p><p><em><strong><span>*</span><span>总结</span><span>*</span></strong></em></p><p><span>感觉这次的大作业，让我对所学到的技术的应用有了更深次的理解。我明白了真正的项目不是那么简单的对一个程序或者算法的应用，而是不同技术、不同思想甚至是不同学科的复杂融合，需求也不是简单的做个计算画个图就能解决的。对我使用计算机技术解决问题有了极大的锻炼和提高。这次的实验，我对时间的分配也比较不合理，在实验报告上分配的时间比较少，导致实验报告写的有些粗糙。做完了这次的大作业，感觉一身轻，我觉得最重要的收获是对一个比较完整的项目的理解，从需求到框架到方法再到最后的实现，受益良多。</span></p></div></div>
+</body>
+</html>
